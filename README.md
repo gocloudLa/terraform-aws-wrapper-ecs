@@ -79,6 +79,23 @@ ecs_parameters = {
 
 
 
+## 📑 Inputs
+| Name                                   | Description                                                                   | Type     | Default                                                           | Required |
+| -------------------------------------- | ----------------------------------------------------------------------------- | -------- | ----------------------------------------------------------------- | -------- |
+| cluster_settings                       | Configuration block(s) with cluster settings.                                 | `map`    | ```{ "name": "containerInsights", "value": "disabled" }```        | no       |
+| configuration                          | The execute command configuration for the cluster.                            | `any`    | ```{ execute_command_configuration = { logging = "DEFAULT" } }``` | no       |
+| autoscaling_capacity_providers         | Map of autoscaling capacity provider definitions to create for the cluster.   | `any`    | ```{}```                                                          | no       |
+| create_cloudwatch_log_group            | Create a CloudWatch log group.                                                | `bool`   | `true`                                                            | no       |
+| cloudwatch_log_group_class             | Specifies the log class of the log group.                                     | `string` | `null`                                                            | no       |
+| cloudwatch_log_group_kms_key_id        | Determines the KMS key id.                                                    | `string` | `null`                                                            | no       |
+| cloudwatch_log_group_name              | Name of the CloudWatch group.                                                 | `string` | `null`                                                            | no       |
+| cloudwatch_log_group_retention_in_days | Days of retention of the CloudWatch group.                                    | `number` | `14`                                                              | no       |
+| cloudwatch_log_group_tags              | Tags to apply to the CloudWatch log group.                                    | `map`    | ```{}```                                                          | no       |
+| cluster_service_connect_defaults       | Default configuration for the service connection in the cluster.              | `map`    | ```{}```                                                          | no       |
+| create_task_exec_iam_role              | Determines the creation of an IAM role for task execution.                    | `bool`   | `false`                                                           | no       |
+| create_task_exec_policy                | Determines the creation of an IAM policy for task execution.                  | `bool`   | `false`                                                           | no       |
+| default_capacity_provider_strategy     | Map of default capacity provider strategy definitions to use for the cluster. | `null`   | `{ FARGATE = { weight = 0 } })`                                   | no       |
+
 
 
 
