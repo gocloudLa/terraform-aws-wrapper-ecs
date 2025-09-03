@@ -13,9 +13,9 @@ module_badges:
 quick_start: |
   ```hcl
   ecs_parameters = {
-    ## Definición del cluster
+    ## Cluster Definition
     "00" = {
-      ## Configuración de los parametros del cluster
+      ## Cluster Parameters Configuration
       cluster_settings = {
         name  = "containerInsights"
         value = "disabled"
@@ -62,10 +62,14 @@ features:
           ```
 important_notes: |
   - **ℹ️ Enable Container Insights:** Enables Container Insights, which generates additional costs - set `enable_container_insights = true`
+  - **⚠️ Cluster Settings:** The `setting` parameter expects a list of maps with `name` and `value` keys
+  - **⚠️ Task Execution Role:** When `create_task_exec_iam_role = true`, ensure proper IAM permissions are configured
+  - **⚠️ CloudWatch Logs:** Default logging configuration uses OVERRIDE mode with custom log group naming
 input_table: |
-  | cluster_settings | Configuration block(s) with cluster settings. | `map` | ```{ "name": "containerInsights", "value": "disabled" }``` | no |
-  | configuration | The execute command configuration for the cluster. | `any` | ```{ execute_command_configuration = { logging = "DEFAULT" } }``` | no |
-  | autoscaling_capacity_providers | Map of autoscaling capacity provider definitions to create for the cluster. | `any` | ```{}``` | no |
+  | setting | Configuration block(s) with cluster settings. | `list` | ```[{ "name": "containerInsights", "value": "enabled" }]``` | no |
+  | cluster_configuration | The execute command configuration for the cluster. | `map` | ```{ execute_command_configuration = { logging = "OVERRIDE", log_configuration = { cloud_watch_log_group_name = "/aws/ecs/${local.common_name}-${each.key}" } } }``` | no |
+  | default_capacity_provider_strategy | Map of default capacity provider strategy definitions to use for the cluster. | `map` | ```{ FARGATE = { weight = 0 } }``` | no |
+  | autoscaling_capacity_providers | Map of autoscaling capacity provider definitions to create for the cluster. | `map` | ```{}``` | no |
   | create_cloudwatch_log_group | Create a CloudWatch log group. | `bool` | `true` | no |
   | cloudwatch_log_group_class | Specifies the log class of the log group. | `string` | `null` | no |
   | cloudwatch_log_group_kms_key_id | Determines the KMS key id. | `string` | `null` | no |
@@ -75,4 +79,13 @@ input_table: |
   | cluster_service_connect_defaults | Default configuration for the service connection in the cluster. | `map` | ```{}``` | no |
   | create_task_exec_iam_role | Determines the creation of an IAM role for task execution. | `bool` | `false` | no |
   | create_task_exec_policy | Determines the creation of an IAM policy for task execution. | `bool` | `false` | no |
-  | default_capacity_provider_strategy | Map of default capacity provider strategy definitions to use for the cluster. | `null` | `{ FARGATE = { weight = 0 } })` | no |
+  | task_exec_iam_role_description | Description of the IAM role for task execution. | `string` | `null` | no |
+  | task_exec_iam_role_name | Name of the IAM role for task execution. | `string` | `null` | no |
+  | task_exec_iam_role_path | Path of the IAM role for task execution. | `string` | `null` | no |
+  | task_exec_iam_role_permissions_boundary | Permissions boundary for the IAM role for task execution. | `string` | `null` | no |
+  | task_exec_iam_role_policies | Policies to attach to the IAM role for task execution. | `map` | ```{}``` | no |
+  | task_exec_iam_role_tags | Tags to apply to the IAM role for task execution. | `map` | ```{}``` | no |
+  | task_exec_iam_role_use_name_prefix | Whether to use name prefix for the IAM role for task execution. | `bool` | `true` | no |
+  | task_exec_iam_statements | IAM policy statements for the task execution role. | `map` | ```{}``` | no |
+  | task_exec_secret_arns | Secret ARNs for the task execution role. | `list` | ```["arn:aws:secretsmanager:*:*:secret:*"]``` | no |
+  | task_exec_ssm_param_arns | SSM parameter ARNs for the task execution role. | `list` | ```["arn:aws:ssm:*:*:parameter/*"]``` | no |
