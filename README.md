@@ -17,7 +17,7 @@ The Terraform Wrapper for AWS ECS simplifies the configuration of the cluster se
 ### 🔗 External Modules
 | Name | Version |
 |------|------:|
-| [terraform-aws-modules/ecs/aws](https://github.com/terraform-aws-modules/ecs-aws) | 6.1.0 |
+| <a href="https://github.com/terraform-aws-modules/terraform-aws-ecs" target="_blank">terraform-aws-modules/ecs/aws</a> | 6.1.0 |
 
 
 
