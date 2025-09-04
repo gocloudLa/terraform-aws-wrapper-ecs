@@ -82,7 +82,7 @@ ecs_parameters = {
 ## 📑 Inputs
 | Name                                    | Description                                                                   | Type     | Default                                                                                                                                                              | Required |
 | --------------------------------------- | ----------------------------------------------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| setting                                 | Configuration block(s) with cluster settings.                                 | `list`   | ```[{ "name": "containerInsights", "value": "enabled" }]```                                                                                                          | no       |
+| cluster_settings                        | Configuration block(s) with cluster settings.                                 | `list`   | ```[{ "name": "containerInsights", "value": "disabled" }]```                                                                                                         | no       |
 | cluster_configuration                   | The execute command configuration for the cluster.                            | `map`    | ```{ execute_command_configuration = { logging = "OVERRIDE", log_configuration = { cloud_watch_log_group_name = "/aws/ecs/${local.common_name}-${each.key}" } } }``` | no       |
 | default_capacity_provider_strategy      | Map of default capacity provider strategy definitions to use for the cluster. | `map`    | ```{ FARGATE = { weight = 0 } }```                                                                                                                                   | no       |
 | autoscaling_capacity_providers          | Map of autoscaling capacity provider definitions to create for the cluster.   | `map`    | ```{}```                                                                                                                                                             | no       |
@@ -114,7 +114,7 @@ ecs_parameters = {
 
 ## ⚠️ Important Notes
 - **ℹ️ Enable Container Insights:** Enables Container Insights, which generates additional costs - set `enable_container_insights = true`
-- **⚠️ Cluster Settings:** The `setting` parameter expects a list of maps with `name` and `value` keys
+- **⚠️ Cluster Settings:** The `cluster_settings` parameter expects a list of maps with `name` and `value` keys
 - **⚠️ Task Execution Role:** When `create_task_exec_iam_role = true`, ensure proper IAM permissions are configured
 - **⚠️ CloudWatch Logs:** Default logging configuration uses OVERRIDE mode with custom log group naming
 
