@@ -2,7 +2,6 @@ module "wrapper_ecs" {
   source = "../../"
 
   metadata = local.metadata
-  project  = "example"
 
 
   ecs_parameters = {
