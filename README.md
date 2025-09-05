@@ -105,6 +105,7 @@ ecs_parameters = {
 | task_exec_iam_statements                | IAM policy statements for the task execution role.                            | `map`    | ```{}```                                                                                                                                                             | no       |
 | task_exec_secret_arns                   | Secret ARNs for the task execution role.                                      | `list`   | ```["arn:aws:secretsmanager:*:*:secret:*"]```                                                                                                                        | no       |
 | task_exec_ssm_param_arns                | SSM parameter ARNs for the task execution role.                               | `list`   | ```["arn:aws:ssm:*:*:parameter/*"]```                                                                                                                                | no       |
+| tags                                    | A map of tags to assign to resources.                                         | `map`    | `{}`                                                                                                                                                                 | no       |
 
 
 
