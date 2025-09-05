@@ -45,5 +45,5 @@ module "ecs" {
   # task_exec_ssm_param_arns                = try(each.value.task_exec_ssm_param_arns, var.ecs_defaults.task_exec_ssm_param_arns, ["arn:aws:ssm:*:*:parameter/*"])
 
 
-  tags = local.common_tags
+  tags = merge(local.common_tags, try(each.value.tags, var.ecs_defaults.tags, null))
 }
