@@ -1,0 +1,8 @@
+title: "Complete Example"
+description: "This example demonstrates a Terraform configuration for setting up an ECS cluster with specific settings and capacity providers."
+main_purpose: "The main purpose is to configure an ECS cluster with custom settings, capacity providers, and autoscaling."
+key_features:
+  - "**Cluster Settings**: Configures container insights to be disabled."
+  - "**Capacity Provider Strategy**: Defines a strategy with weights for FARGATE and FARGATE_SPOT."
+  - "**Autoscaling Capacity Providers**: Currently empty, indicating no autoscaling configuration."
+  - "**Cloudwatch Log Group**: Cloudwatch is disabled for log group creation."
