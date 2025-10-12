@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/gocloudLa/terraform-aws-wrapper-ecs/compare/v1.0.0...v1.0.1) (2025-10-11)
+
+
+### Bug Fixes
+
+* **versions:** remove unused random ([#3](https://github.com/gocloudLa/terraform-aws-wrapper-ecs/issues/3)) ([b0e69d5](https://github.com/gocloudLa/terraform-aws-wrapper-ecs/commit/b0e69d5ad0d13b0b65b8f551a610d8cd5b3ad27e))
+
 ## 1.0.0 (2025-09-05)
 
 
