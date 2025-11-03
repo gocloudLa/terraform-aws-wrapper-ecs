@@ -1,7 +1,7 @@
 module "ecs" {
   for_each = var.ecs_parameters
   source   = "terraform-aws-modules/ecs/aws//modules/cluster"
-  version  = "6.6.1"
+  version  = "6.7.0"
 
   create  = true
   name    = "${local.common_name}-${each.key}"
