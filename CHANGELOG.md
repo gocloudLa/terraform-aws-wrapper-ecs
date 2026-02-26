@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/gocloudLa/terraform-aws-wrapper-ecs/compare/v1.0.1...v1.0.2) (2025-11-25)
+
+
+### Bug Fixes
+
+* **deps:** bump terraform-aws-modules/ecs/aws from 6.1.0 to 6.6.1 in the all-terraform-dependencies group across 1 directory ([#5](https://github.com/gocloudLa/terraform-aws-wrapper-ecs/issues/5)) ([a867dd3](https://github.com/gocloudLa/terraform-aws-wrapper-ecs/commit/a867dd39ed75e8265ec340a66fce30f4bbed39a8))
+
 ## [1.0.1](https://github.com/gocloudLa/terraform-aws-wrapper-ecs/compare/v1.0.0...v1.0.1) (2025-10-11)
 
 
