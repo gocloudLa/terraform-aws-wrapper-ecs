@@ -5,7 +5,7 @@ module "wrapper_ecs" {
 
 
   ecs_parameters = {
-    "00" = {
+    "01" = {
       cluster_settings = [{
         name  = "containerInsights"
         value = "disabled"
