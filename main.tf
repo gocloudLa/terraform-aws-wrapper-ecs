@@ -24,7 +24,7 @@ module "ecs" {
     }
   )
   capacity_providers                                = try(each.value.capacity_providers, var.ecs_defaults.capacity_providers, {})
-  cluster_capacity_providers                        = try(each.value.cluster_capacity_providers, var.ecs_defaults.cluster_capacity_providers, [])
+  cluster_capacity_providers                        = try(each.value.cluster_capacity_providers, var.ecs_defaults.cluster_capacity_providers, ["FARGATE", "FARGATE_SPOT"])
   create_cloudwatch_log_group                       = try(each.value.create_cloudwatch_log_group, var.ecs_defaults.create_cloudwatch_log_group, true)
   cloudwatch_log_group_class                        = try(each.value.cloudwatch_log_group_class, var.ecs_defaults.cloudwatch_log_group_class, null)
   cloudwatch_log_group_kms_key_id                   = try(each.value.cloudwatch_log_group_kms_key_id, var.ecs_defaults.cloudwatch_log_group_kms_key_id, null)
@@ -55,7 +55,7 @@ module "ecs" {
   node_iam_role_source_policy_documents             = try(each.value.node_iam_role_source_policy_documents, var.ecs_defaults.node_iam_role_source_policy_documents, [])
   node_iam_role_override_policy_documents           = try(each.value.node_iam_role_override_policy_documents, var.ecs_defaults.node_iam_role_override_policy_documents, [])
   node_iam_role_statements                          = try(each.value.node_iam_role_statements, var.ecs_defaults.node_iam_role_statements, null)
-  create_security_group                             = try(each.value.create_security_group, var.ecs_defaults.create_security_group, true)
+  create_security_group                             = try(each.value.create_security_group, var.ecs_defaults.create_security_group, false)
   vpc_id                                            = try(each.value.vpc_id, var.ecs_defaults.vpc_id, null)
   security_group_name                               = try(each.value.security_group_name, var.ecs_defaults.security_group_name, null)
   security_group_use_name_prefix                    = try(each.value.security_group_use_name_prefix, var.ecs_defaults.security_group_use_name_prefix, true)
