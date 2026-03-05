@@ -18,8 +18,8 @@ module "wrapper_ecs" {
         FARGATE_SPOT = {
           weight = 50
         }
+
       }
-      autoscaling_capacity_providers = {}
 
       # Disable Cloudwatch
       # create_cloudwatch_log_group = false # Default: true
